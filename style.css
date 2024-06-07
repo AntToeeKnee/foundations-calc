@@ -1,0 +1,11 @@
+.button-container{
+    display: flex;
+    flex-direction: column;
+    height: 50vh; 
+    width: 50vw; 
+}
+
+.single-button, #zero {
+    height: 10vh;
+    width: 10vh;
+}
