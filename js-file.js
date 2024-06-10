@@ -23,7 +23,6 @@ function divide(x, y) {
 function appendSym(x) {
     if(valueOperator === "+" || valueOperator === "*" || valueOperator === "/" || valueOperator === "-") {
         clearScreen();
-        valueOperator = "";
     }
     let oldText = document.getElementById("number-display").textContent;
     let newText = oldText + x;
@@ -44,4 +43,34 @@ function appendOpp(y) {
 
 function clearScreen() {
     document.getElementById("number-display").textContent = "";
+}
+
+function calculate() {
+    let splitNums = "";
+    switch (valueOperator) {
+        case '+':
+            splitNums =  wholeString.split("+");
+            valueOne = +splitNums[0];
+            valueTwo = +splitNums[1];
+            document.getElementById("number-display").textContent = add(valueOne,valueTwo);
+            break;
+        case '-':
+            splitNums =  wholeString.split("-");
+            valueOne = splitNums[0];
+            valueTwo = splitNums[1];
+            document.getElementById("number-display").textContent = subtract(valueOne,valueTwo)
+            break;
+        case '/':
+            splitNums =  wholeString.split("/");
+            valueOne = splitNums[0];
+            valueTwo = splitNums[1];
+            document.getElementById("number-display").textContent = divide(valueOne,valueTwo)
+            break;
+        case '*':
+            splitNums =  wholeString.split("*");
+            valueOne = splitNums[0];
+            valueTwo = splitNums[1];
+            document.getElementById("number-display").textContent = multiply(valueOne,valueTwo);
+            break;
+    }
 }
